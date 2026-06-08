@@ -11,7 +11,7 @@ const FEATURES = [
 ]
 
 const TECH = ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'PostgreSQL', 'Prisma', 'JWT', 'TMDB API']
-const GITHUB_URL = 'https://github.com/TU_USUARIO/seerr'
+const GITHUB_URL = 'https://github.com/AdriCarrasco22/seerr'
 const openGithub = () => window.open(GITHUB_URL, '_blank')
 
 function Landing() {
