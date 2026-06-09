@@ -1,30 +1,102 @@
-# React + Vite
+# Seerr
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plataforma fullstack de descubrimiento y solicitud de películas y series, inspirada en Overseerr. Permite a los usuarios explorar contenido mediante la API de TMDB, solicitar títulos y gestionar peticiones a través de un panel de administración.
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[Ver demo en vivo](https://seerr-flblm1q5a-adrians-projects-38e5ae39.vercel.app)
 
-## React Compiler
+| Rol | Email | Contraseña |
+|-----|-------|------------|
+| Usuario | demo@seerr.com | demo1234 |
+| Admin | admin@seerr.com | admin1234 |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Características
 
-## Expanding the ESLint configuration
+- Descubrimiento de películas y series con datos en tiempo real de TMDB
+- Filtros por género y paginación
+- Buscador con debounce y resultados instantáneos
+- Modal con trailer de YouTube y sistema de peticiones
+- Autenticación completa con JWT y roles (USER / ADMIN)
+- Panel de administración para gestionar peticiones
+- Perfil de usuario editable
+- Landing page con acceso demo sin registro
+- Deploy en Vercel (frontend) y Railway (backend + PostgreSQL)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Stack tecnológico
 
+### Frontend
+- React 18 + TypeScript
+- Vite
+- Tailwind CSS
+- React Router DOM
+- Axios
+- React Hot Toast
 
+### Backend
+- Node.js + Express + TypeScript
+- Prisma ORM
+- PostgreSQL
+- JWT + bcryptjs
 
-Usuario normal:
+### APIs externas
+- TMDB API (películas y series)
+- YouTube (trailers embebidos)
 
-Nombre: Demo User
-Email: demo@seerr.com
-Contraseña: demo1234
+## Estructura del proyecto
 
-Usuario admin:
+    seerr/
+    ├── frontend/          # Aplicación React
+    │   ├── src/
+    │   │   ├── components/
+    │   │   ├── context/
+    │   │   ├── hooks/
+    │   │   ├── pages/
+    │   │   ├── services/
+    │   │   └── types/
+    └── backend/           # API REST Node.js
+        ├── prisma/
+        └── src/
+            ├── controllers/
+            ├── middlewares/
+            ├── routes/
+            └── types/
 
-Nombre: Admin Demo
-Email: admin@seerr.com
-Contraseña: admin1234
+## Instalación local
+
+### Requisitos
+- Node.js 18+
+- PostgreSQL
+
+### Frontend
+
+    cd frontend
+    npm install
+    cp .env.example .env
+    npm run dev
+
+### Backend
+
+    cd backend
+    npm install
+    cp .env.example .env
+    npx prisma migrate dev
+    npm run dev
+
+### Variables de entorno
+
+**frontend/.env**
+
+    VITE_TMDB_API_KEY=tu_api_key_de_tmdb
+    VITE_TMDB_BASE_URL=https://api.themoviedb.org/3
+    VITE_TMDB_IMAGE_URL=https://image.tmdb.org/t/p
+
+**backend/.env**
+
+    PORT=4000
+    DATABASE_URL=postgresql://usuario:contraseña@localhost:5432/seerr
+    JWT_SECRET=tu_clave_secreta
+
+## Autor
+
+Adrián Carrasco Fernández
